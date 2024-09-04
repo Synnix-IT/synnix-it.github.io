@@ -1333,7 +1333,7 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --global-font-size: 16px;
+  --global-font-size: 18px;
   --global-bg: #fff;
   --font-color: #4c4948;
   --hr-border: #a4d8fa;
@@ -4410,6 +4410,7 @@ h1.page-title + .tag-cloud-list {
 #article-container {
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: justify;
 }
 #article-container a {
   color: #49b1f5;
