@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2024.11.07 學習紀錄 | Synnix IT Blog</title><meta name="author" content="Synnix IT Department"><meta name="copyright" content="Synnix IT Department"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2024年11月07日的學習紀錄，涵蓋 Python PyQt6 的學習內容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.11.07 學習紀錄">
+<meta property="og:url" content="https://synnix-it.blog/2024/11/08/2024-11-07/">
+<meta property="og:site_name" content="Synnix IT Blog">
+<meta property="og:description" content="2024年11月07日的學習紀錄，涵蓋 Python PyQt6 的學習內容。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://synnix-it.blog/images/Python_PyQt6_3.jpg">
+<meta property="article:published_time" content="2024-11-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T16:00:00.000Z">
+<meta property="article:author" content="Synnix IT Department">
+<meta property="article:tag" content="學習紀錄">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://synnix-it.blog/images/Python_PyQt6_3.jpg"><link rel="shortcut icon" href="/img/Blog.ico"><link rel="canonical" href="https://synnix-it.blog/2024/11/08/2024-11-07/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"你已切換為繁體中文","cht_to_chs":"你已切換為簡體中文","day_to_night":"你已切換為深色模式","night_to_day":"你已切換為淺色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2024.11.07 學習紀錄',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-08 00:00:00'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/IT_Department_Logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/images/Python_PyQt6_3.jpg);"><nav id="nav"><span id="blog-info"><a href="/" title="Synnix IT Blog"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/IT_Department_Logo.jpg" alt="Logo"/><span class="site-name">Synnix IT Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2024.11.07 學習紀錄</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2024-11-07T16:00:00.000Z" title="發表於 2024-11-08 00:00:00">2024-11-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2024-11-07T16:00:00.000Z" title="更新於 2024-11-08 00:00:00">2024-11-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/it/">IT</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字數總計:</span><span class="word-count">896</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>2分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2024.11.07 學習紀錄"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="2024-11-07-學習紀錄"><a href="#2024-11-07-學習紀錄" class="headerlink" title="2024.11.07 學習紀錄"></a>2024.11.07 學習紀錄</h1><h2 id="今日進度概述"><a href="#今日進度概述" class="headerlink" title="今日進度概述"></a>今日進度概述</h2><p>今天的學習主要圍繞 <strong>Python PyQt6</strong> 的相關知識，學習了 <code>PyQt6</code> 的各種範例程式，涵蓋 <code>QLabel</code>、<code>QLineEdit</code>、<code>QTextEdit</code>、<code>QButton</code>、<code>QRadioButton</code> 等常見的部件用法。雖然沒有進行實際操作練習，但透過這些範例深入了解了各部件的 <strong>屬性</strong> 和 <strong>方法</strong>，及其在 <code>GUI</code> 應用中的使用方式。</p>
+<hr>
+<h2 id="學習重點"><a href="#學習重點" class="headerlink" title="學習重點"></a>學習重點</h2><h3 id="Python-PyQt6"><a href="#Python-PyQt6" class="headerlink" title="Python PyQt6"></a>Python PyQt6</h3><ul>
+<li><p><strong>QLabel 例子</strong> :<br>  利用 <code>QLabel</code> 與 <code>QLineEdit</code> 的互動，展示 <code>Buddy</code> 機制，使按下 <code>Alt + N</code> 來切換至 <code>Name</code> 欄位，並設置 <code>OK</code> 和 <code>Cancel</code> 按鈕。</p>
+<ul>
+<li>使用 <code>QLabel.setBuddy()</code> 來綁定輸入框。</li>
+<li>利用 <code>GridLayout</code> 安排部件位置，提升 <strong>界面排版</strong> 靈活性。</li>
+</ul>
+</li>
+<li><p><strong>QLineEdit 基本用法</strong> :<br>  顯示普通文本框、背景色與文本顏色、字數限制、只讀文本等多種文本框形式。</p>
+<ul>
+<li><code>QLineEdit.setAlignment()</code> 設置文本對齊方式。</li>
+<li>使用 <code>setPalette()</code> 設置 <strong>背景色</strong> 和 <strong>文本色</strong>。</li>
+<li>使用 <code>setReadOnly()</code> 禁止編輯，提升 <code>UI</code> 安全性。</li>
+</ul>
+</li>
+<li><p><strong>QLineEdit EchoMode</strong> :<br>  展示 <code>EchoMode</code> 屬性，模擬 <strong>密碼框</strong> 效果。</p>
+<ul>
+<li>使用 <code>setEchoMode()</code> 調整文本顯示效果，適用於 <strong>隱藏敏感資訊</strong>。</li>
+</ul>
+</li>
+<li><p><strong>QLineEdit Validator 檢驗</strong> :<br>  設置驗證器，限制輸入 <strong>整數</strong>、<strong>浮點數</strong> 及 <strong>特定格式</strong>。</p>
+<ul>
+<li>利用 <code>QIntValidator</code> 和 <code>QDoubleValidator</code> 進行 <strong>數值驗證</strong>。</li>
+<li><code>QRegularExpressionValidator</code> 驗證自訂字元規則，增強輸入有效性。</li>
+</ul>
+</li>
+<li><p><strong>QLineEdit 輸入掩碼</strong> :<br>  使用輸入掩碼限制輸入格式 (如 <code>IP</code>、<code>MAC</code>、日期、許可證)。</p>
+<ul>
+<li><code>QLineEdit.setInputMask()</code> 設置格式化的輸入限制。</li>
+<li>適用於 <strong>表單輸入</strong> 場景，提升資料 <strong>一致性</strong>。</li>
+</ul>
+</li>
+<li><p><strong>QTextEdit 用法</strong> :<br>  展示如何顯示 <strong>純文本</strong>、<code>HTML</code> 和 <code>Markdown</code> 格式的內容。</p>
+<ul>
+<li>使用 <code>setPlainText()</code>、<code>setHtml()</code> 和 <code>setMarkdown()</code> 來顯示不同格式的內容。</li>
+<li>支援豐富文本顯示，提升內容表現力。</li>
+</ul>
+</li>
+<li><p><strong>QPlainTextEdit 用法</strong> :<br>  顯示純文本內容，適合編輯 <strong>簡單代碼</strong> 或 <strong>純文字</strong>。</p>
+<ul>
+<li><code>QPlainTextEdit</code> 提供無格式文本顯示，適用於日誌等場景。</li>
+<li>利用 <code>setFont()</code> 來設置字型，提高可讀性。</li>
+</ul>
+</li>
+<li><p><strong>QSyntaxHighlighter 語法高亮</strong> :<br>  自訂 <code>Python</code> 語法高亮顯示。</p>
+<ul>
+<li>使用 <code>QSyntaxHighlighter</code> 類及正則表達式進行語法標記。</li>
+<li>設置顏色格式強調 <strong>關鍵字</strong>、<strong>運算符</strong>、<strong>字串</strong> 等元素，提升代碼 <strong>閱讀性</strong>。</li>
+</ul>
+</li>
+<li><p><strong>QTextBrowser 用法</strong> :<br>  加載 <code>HTML</code> 檔案，支援 <strong>外部連結</strong> 與 <strong>歷史紀錄</strong>。</p>
+<ul>
+<li>使用 <code>QTextBrowser</code> 的歷史導覽功能進行 <strong>前進</strong> 與 <strong>後退</strong> 操作。</li>
+<li>可加載本地 <code>HTML</code> 檔案，適用於 <strong>嵌入式說明文件</strong>。</li>
+</ul>
+</li>
+<li><p><strong>QPushButton 用法</strong> :<br>  展示按鈕功能，包括按鈕 <strong>狀態</strong>、<strong>圖標</strong> 與 <strong>快捷鍵</strong> 設置。</p>
+<ul>
+<li>使用 <code>QPushButton.setIcon()</code> 添加圖標。</li>
+<li>設置 <strong>快捷鍵</strong> 與 <code>setCheckable()</code> 切換按鈕狀態，增強使用便利性。</li>
+</ul>
+</li>
+<li><p><strong>QRadioButton 用法</strong> :<br>  模擬單選按鈕組，顯示選擇結果。</p>
+<ul>
+<li><code>QRadioButton</code> 搭配 <code>QButtonGroup</code> 控制選擇組合，適合於 <strong>選擇類問題</strong> 的解決方案。</li>
+</ul>
+</li>
+</ul>
+</br>
+
+
+<h2 id="下一步計畫"><a href="#下一步計畫" class="headerlink" title="下一步計畫"></a>下一步計畫</h2><p>明日的學習將繼續深入以下領域：</p>
+<ul>
+<li><strong>Python PyQt6</strong>：持續練習 <code>PyQt6</code>，學習更完整的 <strong>基本視窗控制項</strong>，直接從程式上了解 <code>GUI</code> 介面的配置，以及 <strong>標籤</strong> 的活用，搭配 <strong>按鈕</strong> 及 <strong>文字輸入框</strong> 做更深入的練習及應用。</li>
+</ul>
+<h3 id="學習目標"><a href="#學習目標" class="headerlink" title="學習目標"></a>學習目標</h3><ul>
+<li>在兩個月內完成 <strong>Computer Foundation</strong> 基礎的學習，並嘗試一些進階主題。</li>
+<li>在一個月內完成 <strong>Python PyQt6</strong> 的基本學習，並嘗試 <code>GUI</code> 介面的實際應用。</li>
+</ul>
+<hr>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>今天的學習範例提供了豐富的 <code>PyQt6</code> <strong>基礎元件</strong> 應用情境。透過了解 <code>QLabel</code>、<code>QLineEdit</code>、<code>QTextEdit</code> 等常用元件，對於 <code>PyQt6</code> 的 <code>GUI</code> <strong>結構</strong>、<strong>事件處理</strong>、<strong>部件屬性配置</strong> 有了更深入的認識。</p>
+<p><em>持續學習，不斷進步，為達成目標奠定堅實基礎！</em></p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/Wang-ren-jie">王仁傑</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://synnix-it.blog/2024/11/08/2024-11-07/">https://synnix-it.blog/2024/11/08/2024-11-07/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權宣告: </span><span class="post-copyright-info">本部落格所有文章除特別宣告外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://synnix-it.blog" target="_blank">Synnix IT Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%B8%E7%BF%92%E7%B4%80%E9%8C%84/">學習紀錄</a><a class="post-meta__tags" href="/tags/python/">Python</a></div><div class="post-share"><div class="social-share" data-image="/images/Python_PyQt6_3.jpg" data-sites="facebook, twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="next-post pull-full" href="/2024/11/07/2024-11-06/" title="2024.11.06 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_PyQt6_2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2024.11.06 學習紀錄</div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a href="/2024/09/05/2024-09-04/" title="2024.09.04 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-05</div><div class="title">2024.09.04 學習紀錄</div></div></a><a href="/2024/09/06/2024-09-05/" title="2024.09.05 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_Loop.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-06</div><div class="title">2024.09.05 學習紀錄</div></div></a><a href="/2024/10/02/2024-10-01/" title="2024.10.01 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_Chapter_6_2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-02</div><div class="title">2024.10.01 學習紀錄</div></div></a><a href="/2024/10/04/2024-10-04/" title="2024.10.04 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_Chapter_7.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-04</div><div class="title">2024.10.04 學習紀錄</div></div></a><a href="/2024/09/30/2024-09-30/" title="2024.09.30 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_Chapter_6_1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-30</div><div class="title">2024.09.30 學習紀錄</div></div></a><a href="/2024/10/07/2024-10-07/" title="2024.10.07 學習紀錄"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_Ch7_Topic.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-07</div><div class="title">2024.10.07 學習紀錄</div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/IT_Department_Logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Synnix IT Department</div><div class="author-info-description">A place where you can fine all kinds of IT knowledge</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">8</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Synnix-IT" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/it-admin@synnix.com.tw" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-11-07-%E5%AD%B8%E7%BF%92%E7%B4%80%E9%8C%84"><span class="toc-number">1.</span> <span class="toc-text">2024.11.07 學習紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E6%97%A5%E9%80%B2%E5%BA%A6%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">今日進度概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E"><span class="toc-number">1.2.</span> <span class="toc-text">學習重點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-PyQt6"><span class="toc-number">1.2.1.</span> <span class="toc-text">Python PyQt6</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5%E8%A8%88%E7%95%AB"><span class="toc-number">1.3.</span> <span class="toc-text">下一步計畫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"><span class="toc-number">1.3.1.</span> <span class="toc-text">學習目標</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">1.3.2.</span> <span class="toc-text">結語</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/08/2024-11-07/" title="2024.11.07 學習紀錄"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_PyQt6_3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024.11.07 學習紀錄"/></a><div class="content"><a class="title" href="/2024/11/08/2024-11-07/" title="2024.11.07 學習紀錄">2024.11.07 學習紀錄</a><time datetime="2024-11-07T16:00:00.000Z" title="發表於 2024-11-08 00:00:00">2024-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/2024-11-06/" title="2024.11.06 學習紀錄"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_PyQt6_2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024.11.06 學習紀錄"/></a><div class="content"><a class="title" href="/2024/11/07/2024-11-06/" title="2024.11.06 學習紀錄">2024.11.06 學習紀錄</a><time datetime="2024-11-06T16:00:00.000Z" title="發表於 2024-11-07 00:00:00">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/06/2024-11-05/" title="2024.11.05 學習紀錄"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/Python_PyQt6_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024.11.05 學習紀錄"/></a><div class="content"><a class="title" href="/2024/11/06/2024-11-05/" title="2024.11.05 學習紀錄">2024.11.05 學習紀錄</a><time datetime="2024-11-05T16:00:00.000Z" title="發表於 2024-11-06 00:00:00">2024-11-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Synnix IT Department</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welcome to Synnix IT Department's Blog !</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">繁</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直達評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://synnix-it.blog/2024/11/08/2024-11-07/'
+    this.page.identifier = '/2024/11/08/2024-11-07/'
+    this.page.title = '2024.11.07 學習紀錄'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://synnix-it-blog.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=synnix-it-blog&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="77, 158, 233" opacity="0.8" zIndex="-1" count="200" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
